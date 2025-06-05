@@ -1,14 +1,25 @@
+import data from "../data/languages.js";
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [language, setLanguage] = useState(data[0]);
 
   return (
     <>
-      <h1>ciao</h1>
+      <section>
+        <h1>Learn Web Development</h1>
+
+        <div className="box">
+          {data.map((curLanguage) => (
+            <button onClick={() => setLanguage(curLanguage.id)} key={curLanguage.id}>
+              {curLanguage.title}
+            </button>
+          ))}
+
+          <div className="paragraph">{language.description}</div>
+        </div>
+      </section>
     </>
   );
 }
