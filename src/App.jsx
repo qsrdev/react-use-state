@@ -12,7 +12,7 @@ function App() {
 
         <div className="box">
           {data.map(({ id, title }) => (
-            <button onClick={() => setLanguage(data[id - 1])} key={id}>
+            <button className={id === language.id && "active"} onClick={() => setLanguage(data[id - 1])} key={id}>
               {title}
             </button>
           ))}
