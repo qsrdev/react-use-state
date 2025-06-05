@@ -11,13 +11,13 @@ function App() {
         <h1>Learn Web Development</h1>
 
         <div className="box">
-          {data.map((curLanguage) => (
-            <button onClick={() => setLanguage(curLanguage.id)} key={curLanguage.id}>
-              {curLanguage.title}
+          {data.map(({ id, title }) => (
+            <button onClick={() => setLanguage(data[id - 1])} key={id}>
+              {title}
             </button>
           ))}
 
-          <div className="paragraph">{language.description}</div>
+          <div className="paragraph">{data[language.id - 1].description}</div>
         </div>
       </section>
     </>
